@@ -6,10 +6,10 @@ import { useState, useEffect } from "react";
 
 // 18 images
 const images = [
-  "/game-photos/1.jpg",
-  "/game-photos/2.jpg",
-  "/game-photos/3.jpg",
-  "/game-photos/4.jpg",
+  "/game-photos/1.JPG",
+  "/game-photos/2.JPG",
+  "/game-photos/3.JPG",
+  "/game-photos/4.JPG",
   "/game-photos/5.jpg",
   "/game-photos/6.jpg",
   "/game-photos/7.jpeg",
@@ -95,14 +95,15 @@ export default function PhotoPairGame({
       {/* Image preload */}
       <div className="hidden">
         {images.map((image, i) => (
-          <Image
-            key={i}
-            src={image}
-            alt={`Image ${i + 1}`}
-            layout="fill"
-            objectFit="cover"
-            priority
-          />
+          <div key={i} className="relative w-full h-full">
+            <Image
+              src={image}
+              alt={`Image ${i + 1}`}
+              fill
+              className="object-cover"
+              priority
+            />
+          </div>
         ))}
       </div>
 
@@ -143,9 +144,8 @@ export default function PhotoPairGame({
                 <Image
                   src={images[index]}
                   alt={`Imagen ${index + 1}`}
-                  layout="fill"
-                  objectFit="cover"
-                  className="rounded-md"
+                  fill
+                  className="object-cover rounded-md"
                 />
               </motion.div>
             )}
